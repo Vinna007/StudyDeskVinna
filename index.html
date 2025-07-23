@@ -21,312 +21,148 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; /* Light gray background */
             color: #374151; /* Dark gray text */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
         }
-        .section-card {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+        body.dark-mode .container {
+            background-color: #1a202c; /* Dark background for container */
         }
-        .flashcard {
-            background-color: #f9fafb; /* Lightest gray */
-            border: 1px solid #e5e7eb; /* Gray border */
-            border-radius: 0.75rem;
-            padding: 2rem;
-            min-height: 150px;
-            display: flex;
-            flex-direction: column; /* Allow image and text to stack */
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-            font-size: 1.5rem;
-            font-weight: 600;
-            user-select: none; /* Prevent text selection on flip */
+        body.dark-mode .section-card {
+            background-color: #2d3748; /* Slightly lighter dark for cards */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
         }
-        .flashcard img {
-            max-width: 100%;
-            max-height: 150px; /* Limit image height */
-            object-fit: contain;
-            margin-bottom: 10px;
-            border-radius: 0.5rem;
+        body.dark-mode .flashcard {
+            background-color: #4a5568;
+            border-color: #4a5568;
+            color: #e2e8f0;
         }
-        .flashcard:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        body.dark-mode .flashcard-flipped {
+            background-color: #2b6cb0; /* Darker blue for flipped */
+            border-color: #2b6cb0;
         }
-        .flashcard-flipped {
-            background-color: #eff6ff; /* Light blue */
-            border-color: #bfdbfe; /* Blue border */
+        body.dark-mode .toggle-btn {
+            background-color: #4a5568;
+            color: #e2e8f0;
         }
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-            cursor: pointer;
-        }
-        .btn:hover {
-            transform: translateY(-1px);
-        }
-        .btn-primary {
-            background-color: #3b82f6; /* Blue */
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #2563eb; /* Darker Blue */
-        }
-        .btn-success {
-            background-color: #10b981; /* Green */
-            color: white;
-        }
-        .btn-success:hover {
-            background-color: #059669; /* Darker Green */
-        }
-        .btn-warning {
-            background-color: #f59e0b; /* Yellow */
-            color: white;
-        }
-        .btn-warning:hover {
-            background-color: #d97706; /* Darker Yellow */
-        }
-        .btn-danger {
-            background-color: #ef4444; /* Red */
-            color: white;
-        }
-        .btn-danger:hover {
-            background-color: #dc2626; /* Darker Red */
-        }
-        .btn-secondary {
-            background-color: #6b7280; /* Gray */
-            color: white;
-        }
-        .btn-secondary:hover {
-            background-color: #4b5563; /* Darker Gray */
-        }
-        .toggle-btn {
-            background-color: #e5e7eb;
-            color: #4b5563;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-        }
-        .toggle-btn.active {
+        body.dark-mode .toggle-btn.active {
             background-color: #3b82f6;
             color: white;
         }
-        textarea, input[type="text"], input[type="file"], select {
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            width: 100%;
-            font-size: 1rem;
-            background-color: #f9fafb;
+        body.dark-mode textarea, body.dark-mode input[type="text"], body.dark-mode input[type="file"], body.dark-mode select {
+            background-color: #4a5568;
+            border-color: #4a5568;
+            color: #e2e8f0;
         }
-        textarea:focus, input[type="text"]:focus, select:focus {
-            outline: none;
+        body.dark-mode textarea:focus, body.dark-mode input[type="text"]:focus, body.dark-mode select:focus {
             border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
         }
-        .video-thumbnail {
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+        body.dark-mode .video-thumbnail, body.dark-mode .pdf-item, body.dark-mode .note-item, body.dark-mode .flashcard-item {
+            background-color: #2d3748;
+            border-color: #4a5568;
         }
-        .video-thumbnail:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        body.dark-mode .video-thumbnail:hover, body.dark-mode .pdf-item:hover, body.dark-mode .note-item:hover, body.dark-mode .flashcard-item:hover {
+            background-color: #4a5568;
         }
-        .note-item, .flashcard-item, .pdf-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #e5e7eb;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
+        body.dark-mode .modal-content {
+            background-color: #2d3748;
+            color: #e2e8f0;
         }
-        .note-item:hover, .flashcard-item:hover, .pdf-item:hover {
-            background-color: #f3f4f6;
+        body.dark-mode .close-button {
+            color: #a0aec0;
         }
-        .note-item:last-child, .flashcard-item:last-child, .pdf-item:last-child {
-            border-bottom: none;
+        body.dark-mode .close-button:hover, body.dark-mode .close-button:focus {
+            color: white;
         }
-        /* Custom modal styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        body.dark-mode #chatContainer {
+            border-color: #4a5568;
         }
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border-radius: 0.75rem;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            position: relative;
+        body.dark-mode #chatMessages {
+            background-color: #2d3748;
         }
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
+        body.dark-mode .chat-message.user {
+            background-color: #3182ce;
         }
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        body.dark-mode .chat-message.ai {
+            background-color: #4a5568;
         }
-
-        /* Chat specific styles */
-        #chatContainer {
-            display: flex;
-            flex-direction: column;
-            height: 400px;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            overflow: hidden;
+        body.dark-mode #chatInputContainer {
+            border-top-color: #4a5568;
+            background-color: #2d3748;
         }
-        #chatMessages {
-            flex-grow: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            background-color: #f9fafb;
+        body.dark-mode #mindMapSection .content {
+            background-color: #2d3748;
+            border-color: #4a5568;
         }
-        .chat-message {
-            margin-bottom: 0.75rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            max-width: 80%;
+        body.dark-mode .rich-text-editor {
+            background-color: #4a5568;
+            border-color: #4a5568;
+            color: #e2e8f0;
         }
-        .chat-message.user {
-            background-color: #dbeafe; /* Light blue */
-            align-self: flex-end;
-            margin-left: auto;
+        body.dark-mode .editor-toolbar button {
+            background-color: #4a5568;
+            color: #e2e8f0;
         }
-        .chat-message.ai {
-            background-color: #e5e7eb; /* Light gray */
-            align-self: flex-start;
-            margin-right: auto;
+        body.dark-mode .editor-toolbar button:hover {
+            background-color: #6b7280;
         }
-        #chatInputContainer {
-            display: flex;
-            padding: 1rem;
-            border-top: 1px solid #e5e7eb;
-            background-color: #ffffff;
-        }
-        #chatInput {
-            flex-grow: 1;
-            margin-right: 0.5rem;
-        }
-        .loading-indicator {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(0,0,0,.3);
-            border-radius: 50%;
-            border-top-color: #3b82f6;
-            animation: spin 1s ease-in-out infinite;
-            -webkit-animation: spin 1s ease-in-out infinite;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-        @keyframes spin {
-            to { -webkit-transform: rotate(360deg); }
-        }
-        @-webkit-keyframes spin {
-            to { -webkit-transform: rotate(360deg); }
-        }
-
-        /* Mind Map specific styles (simplified for external link) */
-        #mindMapSection .content {
-            text-align: center;
-            padding: 2rem;
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-        }
-        #mindMapImage {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        /* Rich Text Editor styles */
-        .rich-text-editor {
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            min-height: 200px;
-            background-color: #f9fafb;
-            overflow-y: auto;
-            word-wrap: break-word;
-        }
-        .rich-text-editor:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-        .editor-toolbar button {
-            background-color: #e5e7eb;
-            color: #4b5563;
-            padding: 0.4rem 0.8rem;
-            border-radius: 0.3rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-        }
-        .editor-toolbar button:hover {
-            background-color: #d1d5db;
-        }
-        .editor-toolbar button.active {
+        body.dark-mode .editor-toolbar button.active {
             background-color: #3b82f6;
             color: white;
         }
-
-        /* PDF Canvas specific styles */
-        #pdfPagesContainer canvas {
-            border: 1px solid #e5e7eb;
-            background-color: #fff;
-            display: block; /* Ensures it takes full width of its container */
-            width: 100%; /* Fluid width */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 100%;
-            margin-bottom: 10px; /* Space between pages */
+        body.dark-mode #pdfPagesContainer canvas {
+            border-color: #4a5568;
+            background-color: #2d3748;
         }
-        #pdfPagesContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%; /* Ensure container takes full width */
+        body.dark-mode #pdfViewerContainer .bg-gray-200 { /* Adjust for the PDF viewer background */
+            background-color: #2d3748;
+        }
+        body.dark-mode .text-blue-600 {
+            color: #63b3ed; /* Lighter blue for dark mode */
+        }
+        body.dark-mode .text-blue-700 {
+            color: #63b3ed;
+        }
+        body.dark-mode .text-blue-800 {
+            color: #63b3ed;
+        }
+        body.dark-mode .text-blue-500 {
+            color: #63b3ed;
+        }
+        body.dark-mode .text-gray-700 {
+            color: #cbd5e0;
+        }
+        body.dark-mode .text-gray-600 {
+            color: #a0aec0;
+        }
+        body.dark-mode .text-gray-500 {
+            color: #718096;
+        }
+        body.dark-mode .bg-blue-50 {
+            background-color: #2a4365;
+            color: #e2e8f0;
+        }
+        body.dark-mode .border-blue-200 {
+            border-color: #4299e1;
+        }
+        body.dark-mode .bg-gray-50 {
+            background-color: #2d3748;
+        }
+        body.dark-mode .border-gray-200 {
+            border-color: #4a5568;
+        }
+        body.dark-mode .text-green-600 {
+            color: #68d391;
+        }
+        body.dark-mode .text-yellow-600 {
+            color: #f6ad55;
+        }
+        body.dark-mode .text-red-600 {
+            color: #fc8181;
         }
     </style>
 </head>
@@ -380,6 +216,7 @@
                 <button id="toggleMindMap" class="toggle-btn active">Mind Map</button>
                 <button id="toggleFolders" class="toggle-btn active">Folder & Arsip</button>
                 <button id="toggleGeminiChat" class="toggle-btn active">Chat Gemini</button>
+                <button id="toggleDarkMode" class="toggle-btn">Mode Gelap</button> <!-- New dark mode toggle -->
             </div>
 
             <p class="text-center text-lg font-semibold mb-6 text-gray-700">Folder Aktif: <span id="activeFolderDisplay" class="text-blue-600"></span></p>
@@ -705,6 +542,7 @@
         let currentSession = null;
         let joinDate = null;
         let entryHistory = [];
+        let isDarkMode = false; // New variable for dark mode state
 
         // PDF.js variables
         let pdfDoc = null;
@@ -735,6 +573,7 @@
         const toggleMindMapBtn = document.getElementById('toggleMindMap');
         const toggleFoldersBtn = document.getElementById('toggleFolders');
         const toggleGeminiChatBtn = document.getElementById('toggleGeminiChat');
+        const toggleDarkModeBtn = document.getElementById('toggleDarkMode'); // New dark mode button
 
         // Flashcard Elements
         const flashcardImportFile = document.getElementById('flashcardImportFile');
@@ -783,7 +622,7 @@
         const pdfNotesArea = document.getElementById('pdfNotesArea');
         const pdfAttachmentInput = document.getElementById('pdfAttachmentInput');
         const pdfAttachedFilesList = document.getElementById('pdfAttachedFilesList');
-        const savePdfNotesBtn = document = document.getElementById('savePdfNotesBtn');
+        const savePdfNotesBtn = document.getElementById('savePdfNotesBtn');
         const exportPdfNotesWordBtn = document.getElementById('exportPdfNotesWordBtn');
         const exportPdfNotesPdfBtn = document.getElementById('exportPdfNotesPdfBtn');
         const closePdfViewerBtn = document.getElementById('closePdfViewerBtn');
@@ -834,7 +673,7 @@
         const modalConfirmBtn = document.getElementById('modalConfirmBtn');
 
         const summaryModal = document.getElementById('summaryModal');
-        const closeSummaryModalBtn = document.getElementById('closeSummaryModalBtn'); // Fixed: document(...) to document.getElementById(...)
+        const closeSummaryModalBtn = document.getElementById('closeSummaryModalBtn');
         const summaryContentDiv = document.getElementById('summaryContent');
         const copySummaryBtn = document.getElementById('copySummaryBtn');
 
@@ -2518,6 +2357,25 @@
             }
         }
 
+        // --- Dark Mode Logic ---
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            toggleDarkModeBtn.classList.toggle('active', isDarkMode);
+            saveData('isDarkMode', isDarkMode); // Save dark mode preference
+            toggleDarkModeBtn.textContent = isDarkMode ? 'Mode Terang' : 'Mode Gelap';
+        }
+
+        function loadDarkModePreference() {
+            const savedDarkMode = loadData('isDarkMode', false); // Default to light mode
+            isDarkMode = savedDarkMode;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            if (toggleDarkModeBtn) { // Ensure button exists before trying to update it
+                toggleDarkModeBtn.classList.toggle('active', isDarkMode);
+                toggleDarkModeBtn.textContent = isDarkMode ? 'Mode Terang' : 'Mode Gelap';
+            }
+        }
+
 
         // --- Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -2533,6 +2391,7 @@
             entryHistory = loadData('entryHistory', []);
             sectionsVisibility = loadData('sectionsVisibility', sectionsVisibility);
             hasEnteredMainApp = loadData('hasEnteredMainApp', false);
+            loadDarkModePreference(); // Load dark mode preference early
 
             // If no join date, set it now and save
             if (!joinDate) {
@@ -2575,6 +2434,7 @@
                 if (toggleMindMapBtn) toggleMindMapBtn.onclick = () => toggleSection('mindMapSection');
                 if (toggleFoldersBtn) toggleFoldersBtn.onclick = () => toggleSection('foldersSection');
                 if (toggleGeminiChatBtn) toggleGeminiChatBtn.onclick = () => toggleSection('geminiChatSection');
+                if (toggleDarkModeBtn) toggleDarkModeBtn.onclick = toggleDarkMode; // Dark mode toggle listener
 
                 // Flashcard Listeners
                 if (addFlashcardBtn) addFlashcardBtn.onclick = addFlashcard;
